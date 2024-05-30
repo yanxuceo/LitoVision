@@ -123,7 +123,6 @@ def play_mp3(file_path):
         print("mpg123 is not installed. Please install it to play the file.")
 
 
-
 # Capture the image
 image_path = '/home/lito/Desktop/photo.jpg'
 capture_image(image_path)
@@ -131,13 +130,11 @@ capture_image(image_path)
 # Send the image to OpenAI's Vision API
 result = send_to_openai_vision_api(image_path)
 
-# Print the response
-# print(json.dumps(result, indent=4))
-
 # Display response
 display_chinese(result)
 
 
+# TODO: faster gen&read by adding streaming ouput for vision api and audio api 
 speech_file_path = Path(__file__).parent / "speech.mp3"
 create_speech_mp3(result['choices'][0]['message']['content'], speech_file_path)
 
